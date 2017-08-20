@@ -214,15 +214,20 @@ body {
 .truck-airPressureWarningOn.yes {
   background-image: url("images/warning.png");
 }
-.trailer-mass {
+.trailer-mass, .trailer-name {
   color: #D8DFE5;
   font-family: Courier New, Courier, monospace;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 25px;
   position: absolute;
-  left: 965px;
+  left: 1030px;
   top: 600px;
-  width: 134px;
-  height: 100px;
-  text-align: right;
+  width: 150px;
+  height: 35px;
+  text-align: center;
+}
+.trailer-name {
+  font-size: 20px;
+  top: 635px;
+  height: 70px
 }

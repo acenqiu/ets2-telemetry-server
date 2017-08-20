@@ -2,14 +2,14 @@
 
 Funbit.Ets.Telemetry.Dashboard.prototype.filter = function (data, utils) {
     data.hasJob = data.trailer.attached;
-    // round truck speed    
+    // round truck speed
     data.truck.speedRounded = Math.abs(data.truck.speed > 0
         ? Math.floor(data.truck.speed)
         : Math.round(data.truck.speed));
     // convert kilometers per hour to miles per hour (just an example)
     data.truck.speedMph = data.truck.speed * 0.621371;
     // convert kg to t
-    data.trailer.mass = (data.trailer.mass / 1000.0) + 't';
+    data.trailer.mass = data.hasJob ? (Math.round(data.trailer.mass / 1000.0) + 't') : '';
     // format odometer data as: 00000.0
     data.truck.odometer = utils.formatFloat(data.truck.odometer, 1);
     // convert gear to readable format
@@ -20,11 +20,11 @@ Funbit.Ets.Telemetry.Dashboard.prototype.filter = function (data, utils) {
     return data;
 };
 
-Funbit.Ets.Telemetry.Dashboard.prototype.render = function (data, utils) {    
+Funbit.Ets.Telemetry.Dashboard.prototype.render = function (data, utils) {
 }
 
 Funbit.Ets.Telemetry.Dashboard.prototype.initialize = function (skinConfig, utils) {
-    utils.preloadImages(['images/bg-on.jpg']);    
+    utils.preloadImages(['images/bg-on.jpg']);
     $(document).add('body').on('click', function () {
         window.history.back();
     });
